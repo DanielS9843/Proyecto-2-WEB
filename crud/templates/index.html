@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %} 
+<title>Inicio</title>
+{% endblock extrahead%}
+
+{% block content %}
+<h1>Campeones de TFT</h1>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Detalles</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for Campeon in campeones %}
+        <tr>
+            <th scope="row">{{ Campeon.id }}</th>
+            <td>{{ Campeon.nombre }}</td>
+            <td><a class="btn btn-success" href="{% url 'detalleCampeon' Campeon.id %}">Detalles</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
